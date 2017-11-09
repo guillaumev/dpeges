@@ -52,7 +52,7 @@ function coordsFromValeur ($val) {
   return $coords;
 }
 
-$valeur = 480;
+$valeur = $_GET['v'];
 $font = "/usr/share/fonts/truetype/freefont/FreeSans.ttf";
 $lettre = lettreFromValeur($valeur);
 $coords = coordsFromValeur($valeur);
@@ -60,5 +60,6 @@ $im = imagecreatefrompng('./images/dpe/dpe-' . $lettre . '.png');
 $text_color = imagecolorallocate($im, 255, 255, 255);
 imagettftext($im, 30, 0, $coords[0], $coords[1],  $text_color, $font, $valeur);
 
-imagepng($im, './test.png');
+header('Content-Type: image/png');
+imagepng($im);
 imagedestroy($im);
