@@ -56,7 +56,7 @@ $valeur = $_GET['v'];
 $font = "/usr/share/fonts/truetype/freefont/FreeSans.ttf";
 $lettre = lettreFromValeur($valeur);
 $coords = coordsFromValeur($valeur);
-$im = imagecreatefrompng('./images/ges/ges-' . $lettre . '.png');
+$im = imagecreatefrompng(dirname(__FILE__).'/images/ges/ges-' . $lettre . '.png');
 $text_color = imagecolorallocate($im, 255, 255, 255);
 imagettftext($im, 30, 0, $coords[0], $coords[1],  $text_color, $font, $valeur);
 
